@@ -1,0 +1,11 @@
+body {
+    direction: rtl;
+}
+
+.main-nav ul {
+    padding-right: 0;
+}
+
+.book-card {
+    text-align: right;
+} 

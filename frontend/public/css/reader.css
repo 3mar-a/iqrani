@@ -1,0 +1,59 @@
+.reader-page {
+    min-height: calc(100vh - 60px);
+    background: #1a1a1a;
+    padding: 1rem;
+}
+
+.reader-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#pdfViewer {
+    width: 100%;
+    min-height: 800px;
+    margin-bottom: 1rem;
+}
+
+.reader-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+#pageInfo {
+    color: #666;
+}
+
+#toggleFullscreen {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+}
+
+/* وضع ملء الشاشة */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: white;
+    padding: 0;
+}
+
+.fullscreen .reader-container {
+    max-width: none;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+} 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - اقرأني</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/rtl.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="/">اقرأني</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">الرئيسية</a></li>
+                    <li><a href="/pages/admin/dashboard.html" class="active">لوحة التحكم</a></li>
+                    <li><a href="#" id="logoutButton">تسجيل الخروج</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-page">
+        <div class="container">
+            <div class="admin-tabs">
+                <button class="tab-button active" data-tab="pending">الكتب المعلقة</button>
+                <button class="tab-button" data-tab="earnings">أرباح الموقع</button>
+                <button class="tab-button" data-tab="authors">أرباح الكتاب</button>
+            </div>
+
+            <div class="tab-content active" id="pendingTab">
+                <div class="books-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>عنوان الكتاب</th>
+                                <th>الكاتب</th>
+                                <th>السعر</th>
+                                <th>التصنيف</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pendingBooks">
+                            <!-- سيتم ملء هذا القسم ديناميكياً -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="tab-content" id="earningsTab">
+                <div class="earnings-card">
+                    <h2>إجمالي أرباح الموقع</h2>
+                    <div class="earnings-amount" id="totalEarnings"></div>
+                    <p class="earnings-note">(15% من إجمالي المبيعات)</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="authorsTab">
+                <div class="authors-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اسم الكاتب</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>إجمالي الأرباح</th>
+                                <th>الرصيد الحالي</th>
+                            </tr>
+                        </thead>
+                        <tbody id="authorsList">
+                            <!-- سيتم ملء هذا القسم ديناميكياً -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html> 

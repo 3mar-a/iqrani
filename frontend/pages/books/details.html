@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الكتاب - اقرأني</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/rtl.css">
+    <link rel="stylesheet" href="/css/books.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="/">اقرأني</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">الرئيسية</a></li>
+                    <li><a href="/pages/books/list.html">الكتب</a></li>
+                    <li class="auth-links" id="authLinks">
+                        <!-- سيتم تحديث هذا القسم ديناميكياً -->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="book-details-page">
+        <div class="container">
+            <div class="book-details">
+                <div class="book-cover">
+                    <img src="" alt="" id="bookCover">
+                </div>
+                <div class="book-info">
+                    <h1 id="bookTitle"></h1>
+                    <p class="book-author" id="bookAuthor"></p>
+                    <div class="book-rating">
+                        <div class="stars" id="bookRating"></div>
+                        <span id="ratingCount"></span>
+                    </div>
+                    <p class="book-description" id="bookDescription"></p>
+                    <div class="book-meta">
+                        <p class="book-price" id="bookPrice"></p>
+                        <p class="book-category" id="bookCategory"></p>
+                    </div>
+                    <div class="book-actions">
+                        <button id="purchaseButton" class="btn-primary">شراء الكتاب</button>
+                        <button id="readButton" class="btn-secondary" style="display: none;">قراءة الكتاب</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- نافذة تأكيد الشراء -->
+    <div id="purchaseModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2>تأكيد الشراء</h2>
+            <p>لا يمكن تحميل الكتاب بصيغة PDF، فقط يمكنك قراءته عبر الموقع. هل تريد المتابعة؟</p>
+            <div class="modal-actions">
+                <button id="confirmPurchase" class="btn-primary">متابعة الشراء</button>
+                <button id="cancelPurchase" class="btn-secondary">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bookDetails.js"></script>
+</body>
+</html> 

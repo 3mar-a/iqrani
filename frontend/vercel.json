@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "https://your-render-api-url.onrender.com/api",
+    "REACT_APP_STRIPE_PUBLIC_KEY": "your_stripe_public_key"
+  }
+} 
