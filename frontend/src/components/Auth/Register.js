@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Paper, Typography, Box, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { TextField, Button, Paper, Typography, Box, FormControl, InputLabel, Select, MenuItem, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
@@ -19,18 +19,42 @@ const Register = () => {
   const { register } = useAuth();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleBookTypesChange = (event) => {
+    const { value } = event.target;
+    setFormData(prev => ({
+      ...prev,
+      bookTypes: typeof value === 'string' ? value.split(',') : value
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
     if (formData.password !== formData.confirmPassword) {
       setError('كلمات المرور غير متطابقة');
       return;
     }
 
+    // التحقق من البيانات المطلوبة للكاتب
+    if (formData.role === 'author') {
+      if (!formData.phoneNumber || !formData.phoneArea || formData.bookTypes.length === 0) {
+        setError('يرجى إكمال جميع البيانات المطلوبة للكاتب');
+        return;
+      }
+    }
+
     try {
-      await register(formData);
+      // حذف confirmPassword من البيانات المرسلة
+      const { confirmPassword, ...registerData } = formData;
+      await register(registerData);
       navigate('/login');
     } catch (error) {
       setError(error.response?.data?.message || 'حدث خطأ في إنشاء الحساب');
@@ -112,15 +136,23 @@ const Register = () => {
                 margin="normal"
                 required
               />
+              <TextField
+                fullWidth
+                label="رمز المنطقة"
+                name="phoneArea"
+                value={formData.phoneArea}
+                onChange={handleChange}
+                margin="normal"
+                required
+              />
               <FormControl fullWidth margin="normal">
-                <InputLabel id="bookTypes-label">أنواع الكتب</InputLabel>
+                <InputLabel>أنواع الكتب</InputLabel>
                 <Select
-                  labelId="bookTypes-label"
-                  name="bookTypes"
                   multiple
                   value={formData.bookTypes}
-                  onChange={handleChange}
+                  onChange={handleBookTypesChange}
                   label="أنواع الكتب"
+                  required={formData.role === 'author'}
                 >
                   <MenuItem value="educational">تعليمية</MenuItem>
                   <MenuItem value="historical">تاريخية</MenuItem>
