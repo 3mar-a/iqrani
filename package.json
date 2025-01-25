@@ -1,0 +1,12 @@
+{
+  "name": "iqrani",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "cd frontend && npm install && npm run build"
+  },
+  "dependencies": {
+    "netlify-cli": "^12.14.0",
+    "serverless-http": "^3.2.0"
+  }
+}
