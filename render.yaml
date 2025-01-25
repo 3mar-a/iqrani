@@ -6,6 +6,8 @@ services:
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
     envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://iqrani:iqrani@omar$$$inshaallah@iqrani.ii5gi.mongodb.net/iqrani?retryWrites=true&w=majority
       - key: JWT_SECRET
         sync: false
       - key: CLOUDINARY_CLOUD_NAME
