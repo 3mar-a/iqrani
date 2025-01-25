@@ -26,6 +26,8 @@ services:
       npm install
       npm install @babel/plugin-proposal-private-property-in-object --save-dev
       npm install eslint-config-react-app --save-dev
+      npm install react-scripts --save
+      chmod +x node_modules/.bin/react-scripts
       CI=false npm run build
     staticPublishPath: frontend/build
     envVars:
