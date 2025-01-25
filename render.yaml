@@ -24,8 +24,9 @@ services:
     buildCommand: |
       cd frontend
       npm install
-      npm install -g react-scripts
-      npm run build
+      npm install @babel/plugin-proposal-private-property-in-object --save-dev
+      npm install eslint-config-react-app --save-dev
+      CI=false npm run build
     staticPublishPath: frontend/build
     envVars:
       - key: REACT_APP_API_URL
